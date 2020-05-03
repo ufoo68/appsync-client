@@ -13,15 +13,13 @@ const App = () => {
     setItem(result.data.allItem)
   })
   return (
-    <div>
-      <ul>
-        {item.map(i =>
-          <li>
-            {i.data}
-          </li>
-        )}
-      </ul>
-    </div>
+    <ul>
+      {item.map(i =>
+        <li>
+          {i.data}
+        </li>
+      )}
+    </ul>
   )
 }
 
