@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react'
+import { useEffectAsync } from '@availity/hooks'
+import { API, graphqlOperation } from 'aws-amplify'
+import { allItem } from './graphql/queries'
 
-function App() {
+const App = () => {
+  const [item, setItem] = useState([{
+    id: '',
+    data: '',
+  }])
+  useEffectAsync(async () => {
+    const result = await API.graphql(graphqlOperation(allItem))
+    setItem(result.data.allItem)
+  })
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <ul>
+        {item.map(i =>
+          <li>
+            {i.data}
+          </li>
+        )}
+      </ul>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
