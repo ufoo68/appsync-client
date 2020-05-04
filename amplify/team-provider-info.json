@@ -10,6 +10,14 @@
             "StackName": "amplify-appsyncclient-test-232839",
             "StackId": "arn:aws:cloudformation:ap-northeast-1:314405667869:stack/amplify-appsyncclient-test-232839/3a178070-8c81-11ea-a441-0a0bafe12bca",
             "AmplifyAppId": "d6sgz8hb3xkri"
+        },
+        "categories": {
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d6sgz8hb3xkri",
+                    "type": "manual"
+                }
+            }
         }
     }
 }
